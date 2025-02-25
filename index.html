@@ -3,49 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Wayne Sterling | GitHub Portfolio</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/pages-themes/hacker@latest/assets/css/style.css">
-
+    
     <style>
-        body { text-align: center; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        ul { list-style: none; padding: 0; } 
-        li { margin: 5px 0; } 
+        
+        body {
+            background-color: black; 
+            text-align: center;
+            margin: 20px;
+            font-family: 'Courier New', monospace;
+            color: #33ff33; 
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        h1, h2 {
+            color: #33ff33; 
+        }
+        a {
+            color: #33ff33;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border-color: #33ff33;
+        }
+        section {
+            margin: 30px 0;
+            padding: 15px;
+            border: 1px solid #33ff33;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8); 
+        }
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: black;
+            color: #33ff33;
+            border-top: 1px solid #33ff33;
+        }
+        /* Copy Button Styles */
+        .copy-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .copy-button {
+            background-color: #33ff33;
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .copy-button:hover {
+            background-color: #00cc00;
+        }
+        .copy-message {
+            display: none;
+            color: #00cc00;
+            font-size: 0.9em;
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to My GitHub Page</h1>
-        <hr>
+<body class="theme-base-0d">
 
+    <header>
+        <h1>Welcome to My GitHub Portfolio</h1>
+        <p>Senior CS Student | Backend Developer | Game Dev Enthusiast</p>
+        <hr>
+    </header>
+
+    <div class="container">
         <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! My name is Wayne Sterling, a Senior CS Student. I enjoy backend development and look to improve my skills. I also enjoy learning game dev too.</p>
+            <h2>👨‍💻 About Me</h2>
+            <p>Hello! My name is <strong>Wayne Sterling</strong>. I am a <strong>Senior CS Student</strong> with a passion for <strong>backend development</strong> and <strong>game dev</strong>. I am always looking to improve my skills and build exciting projects.</p>
         </section>
 
         <section id="projects">
-            <h2>My Projects</h2>
+            <h2>📂 My Projects</h2>
             <ul>
-                <li><a href="https://github.com/Wayne0S/AACNestedHW" target="_blank">Project 1</a></li>
-                <li><a href="https://github.com/Wayne0S/Tic-Tac-Toe" target="_blank">Project 2</a></li>
-                <li><a href="https://github.com/Wayne0S/H9" target="_blank">Project 3</a></li>
+                <li>🔗 <a href="https://github.com/Wayne0S/AACNestedHW" target="_blank">Project 1: AAC Nested HW</a></li>
+                <li>🔗 <a href="https://github.com/Wayne0S/Tic-Tac-Toe" target="_blank">Project 2: Tic-Tac-Toe</a></li>
+                <li>🔗 <a href="https://github.com/Wayne0S/H9" target="_blank">Project 3: H9</a></li>
             </ul>
         </section>
 
         <section id="resume">
-            <h2>My Resume</h2>
-            <p><a href="https://github.com/Wayne0S/Resume/blob/main/Resume%20-%20Sterling.pdf" target="_blank">
+            <h2>📜 Resume</h2>
+            <p>🔗 <a href="https://github.com/Wayne0S/Resume/blob/main/Resume%20-%20Sterling.pdf" target="_blank">
                 Click here to view my resume (PDF)
             </a></p>
         </section>
 
         <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: sterling.w01@mymail.sxu</p>
-            <p>GitHub: <a href="https://github.com/Wayne0S" target="_blank">github.com/Wayne0S</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/wayne-sterling-04aa012b7/" target="_blank">www.linkedin.com/in/wayne-sterling-04aa012b7/</a></p>
+            <h2>📞 Contact Me</h2>
+            <p>📧 Email: <span id="email">sterling.w01@mymail.sxu</span></p>
+            <div class="copy-container">
+                <button class="copy-button" onclick="copyEmail()">Copy Email</button>
+                <span id="copy-message" class="copy-message">Copied!</span>
+            </div>
+            <p>🐱 GitHub: <a href="https://github.com/Wayne0S" target="_blank">github.com/Wayne0S</a></p>
+            <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/wayne-sterling-04aa012b7/" target="_blank">Wayne Sterling</a></p>
         </section>
     </div>
+
+    <footer>
+        <p>© 2024 Wayne Sterling | GitHub Portfolio</p>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const emailText = document.getElementById("email").innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const copyMessage = document.getElementById("copy-message");
+                copyMessage.style.display = "inline";
+                setTimeout(() => {
+                    copyMessage.style.display = "none";
+                }, 1500);
+            });
+        }
+    </script>
+
 </body>
 </html>
